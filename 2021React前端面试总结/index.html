@@ -1,37 +1,432 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="为了喵喵奋斗">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          2021React前端面试总结 - undefined
+        
+    </title>
+
+    <link rel="canonical" href="https://shenjingjia.github.io/2021React前端面试总结/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+    <!-- Custom CSS --> 
+    
+<link rel="stylesheet" href="/css/beantech.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+    
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
 
 
-{% block content %}
+    
+<link rel="stylesheet" href="/css/widget.css">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+    
+<link rel="stylesheet" href="/css/rocket.css">
+
+
+    
+<link rel="stylesheet" href="/css/signature.css">
+
+
+    
+<link rel="stylesheet" href="/css/toc.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#React,JavaScript,前端面试,Typescript" title="React,JavaScript,前端面试,Typescript">React,JavaScript,前端面试,Typescript</a>
+                            
+                        </div>
+                        <h1>2021React前端面试总结</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by  on
+                            2021-05-26
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</header>
 
-{% endblock %}
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">shenjingjia</a>
+        </div>
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h4 id="参加面试对面试官问题总结"><a href="#参加面试对面试官问题总结" class="headerlink" title="参加面试对面试官问题总结"></a>参加面试对面试官问题总结</h4><p>最近一直参加面试，故对面试题进行一些总结，希望能对大家有用。</p>
+<h5 id="React生命周期执行顺序"><a href="#React生命周期执行顺序" class="headerlink" title="React生命周期执行顺序"></a>React生命周期执行顺序</h5><p>这个问题考察点：我们对React生命周期的理解，对我们平时在项目中出现bug分析问题的一种考察。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210408180139585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3NTI3MDE1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>constructor –&gt; componentWillMount —&gt; render –&gt; componentDidMount<br>update 过程：componentWillReceiveProps –&gt;shouldComponentUpdate –&gt; componentWillUpdate –&gt;  render –&gt; componentDidUpdate<br>卸载过程：componentWillUnmout</p>
+<p>当然componentWillReceiveProps 在React中被废弃 替代是：getDerivedStateFromProps。<br>getDerivedStateFromProps在无论是props发生变化还是state发生变化都会触发。<br><img src="https://img-blog.csdnimg.cn/20210408181113171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3NTI3MDE1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>可以参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/514fe21b9914">https://www.jianshu.com/p/514fe21b9914</a></p>
+<h5 id="父子组件生命周期执行顺序"><a href="#父子组件生命周期执行顺序" class="headerlink" title="父子组件生命周期执行顺序"></a>父子组件生命周期执行顺序</h5><p>参考上面的执行顺序，会先进父组件的componentWillMount然后依次执行子组件生命周期函数到所有子组件的componentDidMount执行完成再执行父组件的render和componentDidMount。<br>多个子组件交替执行。</p>
+<h5 id="a-11-amp-amp-a-22-amp-amp-a-33在什么情况下为true"><a href="#a-11-amp-amp-a-22-amp-amp-a-33在什么情况下为true" class="headerlink" title="a==11 &amp;&amp; a==22 &amp;&amp; a==33在什么情况下为true"></a><code>a==11 &amp;&amp; a==22 &amp;&amp; a==33</code>在什么情况下为true</h5><p>考察点：js == 双等语句的隐性转换。<br>可以参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Equality">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Equality</a></p>
+<p>这里大概说一下解题思路：<br>当对象和一个数值进行比较时，对象的隐形转换的方式是通过<code>toString()</code>和<code>valueOf()</code>来进行转换，并且是先<code>valueOf()</code>再<code>toString()</code>的。了解这个之后实现方式就很简单了。<br>代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">	<span class="attr">num</span>: <span class="number">0</span>,</span><br><span class="line">	<span class="attr">toString</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.num++</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.num * <span class="number">11</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="变量提升，js预编译，作用域"><a href="#变量提升，js预编译，作用域" class="headerlink" title="变量提升，js预编译，作用域"></a>变量提升，js预编译，作用域</h5><p>考察点：如标题，这个考察基础能力，这三个考察点可以出无限的面试题，所以一定要研究明白，加分项满满的。很多前端面试题教学的都有讲这个的。<br>参考面试题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//100</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">//undefind</span></span><br><span class="line"><span class="keyword">var</span> b;</span><br></pre></td></tr></table></figure>
+<p>这是一个很简单的变量提升的题。当然这些是在非严格模式下执行的结果。<br>js为什么会有变量提升的情况存在，是因为存在预编译。那么预编译会做什么呢。<br>1.会将所有的声明（包括函数声明，函数形参）提前并且函数声明的优先级高于变量的声明。这也是变量提升的原因<br>2.然后会给所有的变量的赋值为undefind.<br>所以上面的代码执行顺序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = undefind;</span><br><span class="line">a = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">//var a; 这一步提前执行了就不会再执行了</span></span><br></pre></td></tr></table></figure>
+<p>关于预编译还有很多很多面试题网上可以搜到，解决这类题的话，只要不着急慢慢自己整理出来实际的执行顺序就好。不要急不要乱。<br>这个是一个讲预编译的博客可以看看：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018001871">https://segmentfault.com/a/1190000018001871</a><br>关于作用域的话，只要牢记<strong>就近原则</strong>这一条就ok<br>就近原则：<strong>会在变量使用的最小作用域单元查找（块级活着函数级）找不到往父级一直找到全局作用域为止。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(a);</span><br><span class="line">	<span class="built_in">console</span>.log(b);</span><br><span class="line">	<span class="built_in">console</span>.log(c);</span><br><span class="line">	<span class="keyword">var</span> c = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">20</span>);</span><br><span class="line"><span class="comment">// 20</span></span><br><span class="line"><span class="comment">// 10</span></span><br><span class="line"><span class="comment">// undefind</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>这是我自己造的一道面试题，这道题需要注意函数形参也相当于变量声明。<br>然后b这里就能看出作用域的查找原理。</p>
+<h5 id="HTTP协议和HTTPS协议区别以及网络状态码"><a href="#HTTP协议和HTTPS协议区别以及网络状态码" class="headerlink" title="HTTP协议和HTTPS协议区别以及网络状态码"></a>HTTP协议和HTTPS协议区别以及网络状态码</h5><p>关于http协议：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP">https://developer.mozilla.org/zh-CN/docs/Web/HTTP</a></p>
+<p>http协议状态码：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status</a></p>
+<p>状态码的话：一般常问到的是300 和 400 和500这些错误的状态码<br><img src="https://img-blog.csdnimg.cn/20210409140259917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3NTI3MDE1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>300一般是重定向的。<br><img src="https://img-blog.csdnimg.cn/20210409140352760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3NTI3MDE1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>400的状态码一般是客户端的响应，是服务端对客户端发送过来的数据的一些响应，也是前端接触比较的状态码回答的时候拿项目中比较常见的来说，如果问太多的话 可以回答忘记了，因为有的时候在实际开发中我们也经常会去查阅状态码。</p>
+<p>500 是服务端的响应，表示客户端的请求已经发给服务端，但是在服务端出现了问题。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210409140909724.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3NTI3MDE1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其实对于网络状态码面试提问，面试官是很宽容的，所以答的好是加分项，即使答的不好，面试官也不会很纠结这个。</p>
+<p><strong>还有遇到这个问题的时候，也可以通过一些自己在项目中常遇见的状态码，然后自己怎么通过状态码分析前端请求方法错误地方来作答，这样也行。</strong></p>
+<p>http和https协议的区别：</p>
+<p>　　1、https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。</p>
+<p>　　2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</p>
+<p>　　3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<p>　　4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。<br>　　可以在网上搜索一些博客看看。</p>
+<h5 id="Hook的好处为什么Hook会大规模推崇"><a href="#Hook的好处为什么Hook会大规模推崇" class="headerlink" title="Hook的好处为什么Hook会大规模推崇"></a>Hook的好处为什么Hook会大规模推崇</h5><p>React的hooks出来也一年多，至于他的好处各大博客也有讲，可以自己搜索一些博客，加上自己平时使用hooks的过程的感受来谈谈，总结一套适合自己的答案。</p>
+<p>可以参考React官网中对于<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/hooks-intro.html">Hook简介</a></p>
+<h5 id="常用的Hook有哪些"><a href="#常用的Hook有哪些" class="headerlink" title="常用的Hook有哪些"></a>常用的Hook有哪些</h5><p>对于这个问题更多是你在平时工作中怎么使用hook然后对每个hook怎么理解他们的用途来答。<br>首先React官网中<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/hooks-overview.html">Hook概览</a>这个页面里面的hook一定有的也是一定要答。<br>其次就是<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/hooks-reference.html">其他hook</a><br>这里面需要额外说几句的</p>
+<ol>
+<li>useCallback: 这个我们在平时项目中会使用该hook包裹一些方法，缓存这个方法，当依赖发生变化时更改<strong>方法体的实现</strong>然后为了解决闭包陷阱。</li>
+<li>useMemo：React 可能仍需要在跳过渲染前渲染该组件。不过由于 React 不会对组件树的“深层”节点进行不必要的渲染，所以大可不必担心。如果你在渲染期间执行了高开销的计算，则可以使用 useMemo 来进行优化。这个是React官网上的一段话，可以去理解一下。大部分做性能优化。</li>
+<li>提到useMemo需要注意的它有点类似shouldComponentUpdate，在使用hook之后都是函数组件，那么除了这个React还提供了React.memo这样的高阶组件来实现类似shouldComponentUpdate功能。</li>
+<li>关于useCallback和useMemo的差异，其实useCallback的底层是通过useMemo来实现的，所以可以通过自己在实际项目中对他们不同的使用场景来答，然后既然useCallback的底层是useMemo实现的也就表示useMemo可以完全替代useCallback。</li>
+</ol>
+<h5 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h5><p>这个是前端必会的，就不过多口舌。<br>文档：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise</a></p>
+<p>首先它有三个状态，pending 已兑现（fulfilled）成功，已拒绝（rejected）cath，<strong>一旦状态发生变化就不逆了</strong>。</p>
+<p>然后就是<strong>promise.all</strong>  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all</a><br>此方法在集合多个 promise 的返回结果时很有用。</p>
+<p>完成（Fulfillment）：<br>如果传入的可迭代对象为空，Promise.all 会同步地返回一个已完成（resolved）状态的promise。<br>如果所有传入的 promise 都变为完成状态，或者传入的可迭代对象内没有 promise，Promise.all 返回的 promise 异步地变为完成。<br>在任何情况下，Promise.all 返回的 promise 的完成状态的结果都是一个数组，它包含所有的传入迭代参数对象的值（也包括非 promise 值）。</p>
+<p>失败/拒绝（Rejection）：<br>如果传入的 promise 中有一个失败（rejected），Promise.all 异步地将失败的那个结果给失败状态的回调函数，而不管其它 promise 是否完成。</p>
+<p>有些面试官会让人自己实现一个promise.all的方法，这个就看你怼promise.all这个方法的理解了，可以根据上面的描述自己自己说说思路。<br>可以自己查查博客，因为我也是自己知道大概思路，直接写代码没写过，后面有空我会尝试一下。</p>
+<p><strong>Promise.race()</strong> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race</a></p>
+<p>一个待定的 Promise 只要给定的迭代中的一个promise解决或拒绝，就采用第一个promise的值作为它的值，从而异步地解析或拒绝（一旦堆栈为空）。</p>
+<p>描述<br>race 函数返回一个 Promise，它将与第一个传递的 promise 相同的完成方式被完成。它可以是完成（ resolves），也可以是失败（rejects），这要取决于第一个完成的方式是两个中的哪个。</p>
+<p>如果传的迭代是空的，则返回的 promise 将永远等待。</p>
+<p>如果迭代包含一个或多个非承诺值和/或已解决/拒绝的承诺，则 Promise.race 将解析为迭代中找到的第一个值。</p>
+<p> 最近面试遇到的问题基本在这里，因为我面试的公司没有那种一线大厂，可能有些面试题就很常见，但是也希望对大家有一些帮助。</p>
+<p>面试总结：每一道面试题都有面试官的考察点，即使这个考察点在实际开发中用的不多但是依然是有用。而我们作为面试者，所要做的只有努力提升自己，我以前很不喜欢刷面试题，但是这次面试真的改变很多，刷一些面试题能自己明白很多，在面试的时候更加从容，这样不是很好嘛。但是刷面试题最好能理解地去记忆。</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy;  2021 
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://shenjingjia.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://shenjingjia.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+</html>
